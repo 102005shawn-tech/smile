@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>慈濟大學微笑漣漪系統</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero-card">
+      <h1>慈濟大學微笑漣漪系統</h1>
+      <p>一個微笑，可能就是別人今天重新相信自己的開始。</p>
+    </header>
+
+    <main class="content-card">
+      <section id="accountFormSection">
+        <label>校園帳號 (@gms.tcu.edu.tw)</label>
+        <input id="accountInput" type="text" placeholder="例如 abc123">
+        <label>暱稱</label>
+        <input id="nicknameInput" type="text" placeholder="你的稱呼">
+        <button id="saveAccountBtn" onclick="saveAndRegister()">儲存並開始</button>
+      </section>
+
+      <section id="mainActions" style="margin-top: 20px;">
+        <p id="statusMsg"></p>
+        <button onclick="testSmile()">傳送測試微笑 (存入資料庫)</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
