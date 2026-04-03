@@ -1,5 +1,16 @@
 // app.js - 慈大微笑系統核心邏輯
+const myAcc = localStorage.getItem('tcu_account');
 
+if (myAcc) {
+    // 這裡一定要確認 ID 是 "qrcode"
+    new QRCode(document.getElementById("qrcode"), {
+        text: myAcc,
+        width: 150,
+        height: 150
+    });
+} else {
+    document.getElementById("qrcode").innerText = "尚未設定帳號";
+}
 // 1. 初始化頁面：檢查是否有存過帳號
 document.addEventListener('DOMContentLoaded', () => {
     const savedAcc = localStorage.getItem('tcu_account');

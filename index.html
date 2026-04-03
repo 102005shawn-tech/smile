@@ -30,7 +30,28 @@
       </section>
     </main>
   </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div class="page-shell">
+    <h1>慈大微笑 QR 系統</h1>
+    
+    <section id="myQRSection">
+        <div id="qrcode" style="display: flex; justify-content: center; margin: 20px 0;"></div>
+        <p>這是你的專屬微笑 QR Code</p>
+    </section>
+
+    <hr>
+
+    <section id="scanSection">
+        <button id="startScanBtn" onclick="startScanner()">開啟相機掃描別人</button>
+        <div id="reader" style="width: 100%; margin-top: 10px;"></div>
+    </section>
+
+    <p id="statusMsg"></p>
+</div>
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
