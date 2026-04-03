@@ -1,58 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>慈濟大學微笑漣漪系統</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>慈大微笑 QR 系統</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero-card">
-      <h1>慈濟大學微笑漣漪系統</h1>
-      <p>一個微笑，可能就是別人今天重新相信自己的開始。</p>
-    </header>
+    <div class="page-shell">
+        <header>
+            <h1>慈大微笑 QR 系統</h1>
+            <p id="welcomeMsg">請先儲存帳號</p>
+        </header>
 
-    <main class="content-card">
-      <section id="accountFormSection">
-        <label>校園帳號 (@gms.tcu.edu.tw)</label>
-        <input id="accountInput" type="text" placeholder="例如 abc123">
-        <label>暱稱</label>
-        <input id="nicknameInput" type="text" placeholder="你的稱呼">
-        <button id="saveAccountBtn" onclick="saveAndRegister()">儲存並開始</button>
-      </section>
+        <div class="card">
+            <div id="qrcode"></div>
+            <p class="hint">這是你的專屬微笑 QR Code</p>
+        </div>
 
-      <section id="mainActions" style="margin-top: 20px;">
+        <div class="card" id="setupSection">
+            <input id="accountInput" type="text" placeholder="GMS 帳號 (如: abc123)">
+            <input id="nicknameInput" type="text" placeholder="暱稱">
+            <button onclick="saveAndRegister()">儲存並產生 QR</button>
+        </div>
+
+        <div class="card">
+            <button class="scan-btn" onclick="startScanner()">開啟相機掃描別人</button>
+            <div id="reader"></div>
+        </div>
+
         <p id="statusMsg"></p>
-        <button onclick="testSmile()">傳送測試微笑 (存入資料庫)</button>
-      </section>
-    </main>
-  </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    </div>
 
-<script src="https://unpkg.com/html5-qrcode"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<div class="page-shell">
-    <h1>慈大微笑 QR 系統</h1>
-    
-    <section id="myQRSection">
-        <div id="qrcode" style="display: flex; justify-content: center; margin: 20px 0;"></div>
-        <p>這是你的專屬微笑 QR Code</p>
-    </section>
-
-    <hr>
-
-    <section id="scanSection">
-        <button id="startScanBtn" onclick="startScanner()">開啟相機掃描別人</button>
-        <div id="reader" style="width: 100%; margin-top: 10px;"></div>
-    </section>
-
-    <p id="statusMsg"></p>
-</div>
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
